@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hair & Makeup Services Quote</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px; 
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
+
+        .navbar-dark .navbar-toggler:focus,
+        .navbar-dark .navbar-toggler:hover {
+            background-color: #ffffff;
+        }
+
+        .result {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .has-error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Hair & Makeup Services</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="artists.html">Artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="quote.html">Get a Quote</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <form id="quoteForm" onsubmit="calculateQuote(); return false;">
+            <div class="mb-3">
+                <label for="services" class="form-label">Select Services:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="makeup" value="makeup">
+                    <label class="form-check-label" for="makeup">Makeup</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="hair" value="hair" onchange="toggleHairLength()">
+                    <label class="form-check-label" for="hair">Hair Styling</label>
+                    <div id="hairLengthGroup" style="display:none;">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary" id="shortBtn" onclick="setHairLength('short')">Short</button>
+                            <button type="button" class="btn btn-secondary" id="mediumBtn" onclick="setHairLength('medium')">Medium</button>
+                            <button type="button" class="btn btn-secondary" id="longBtn" onclick="setHairLength('long')">Long</button>
+                        </div>
+                    </div>
+                    <div id="hairLengthError" class="text-danger" style="display:none;">Hair length is required.</div>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="nails" value="nails">
+                    <label class="form-check-label" for="nails">Nail Care</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="dayOfService" class="form-label">Select Day of Service:</label>
+                <input type="date" class="form-control" id="dayOfService" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="numberOfPeople" class="form-label">Number of People:</label>
+                <select class="form-select" id="numberOfPeople" onchange="calculateQuote();">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="additionalInfo" class="form-label">Additional Information:</label>
+                <textarea class="form-control" id="additionalInfo" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Get Quote</button>
+        </form>
+
+        <div class="result" id="quoteResult">
+            <h4>Your Quote:</h4>
+            <p id="quoteAmount"></p>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const servicePrices = {
+            makeup: 50,
+            hair: 60,
+            nails: 35
+        };
+
+        let hairLength = '';
+
+        const hairLengthPrices = {
+            short: 60,
+            medium: 70,
+            long: 80
+        };
+
+        function toggleHairLength() {
+            const hairCheckbox = document.getElementById('hair');
+            const hairLengthGroup = document.getElementById('hairLengthGroup');
+            hairLengthGroup.style.display = hairCheckbox.checked ? 'block' : 'none';
+            if (!hairCheckbox.checked) {
+                hairLength = ''; 
+            }
+            validateForm();
+        }
+
+        function setHairLength(length) {
+            hairLength = length;
+            validateForm();
+        }
+
+        function calculateQuote() {
+            const selectedServices = getSelectedServices();
+            const dayOfService = document.getElementById('dayOfService').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+
+            const numberOfPeople = parseInt(document.getElementById('numberOfPeople').value);
+
+            if (document.getElementById('hair').checked && hairLength === '') {
+                document.getElementById('hairLengthGroup').classList.add('has-error');
+                document.getElementById('hairLengthError').style.display = 'block';
+                return; 
+            } else {
+                document.getElementById('hairLengthGroup').classList.remove('has-error');
+                document.getElementById('hairLengthError').style.display = 'none';
+            }
+
+            let totalAmount = 0;
+            selectedServices.forEach(service => {
+                if (service === 'hair' && hairLength) {
+                    totalAmount += hairLengthPrices[hairLength];
+                } else {
+                    totalAmount += servicePrices[service];
+                }
+            });
+
+            totalAmount *= numberOfPeople;
+
+            document.getElementById('quoteAmount').innerText = `$${totalAmount.toFixed(2)}`;
+            document.getElementById('quoteResult').style.display = 'block';
+        }
+
+        function validateForm() {
+            const hairCheckbox = document.getElementById('hair');
+            const hairLengthGroup = document.getElementById('hairLengthGroup');
+
+            if (hairCheckbox.checked && hairLength === '') {
+                hairLengthGroup.classList.add('has-error');
+                document.getElementById('hairLengthError').style.display = 'block';
+            } else {
+                hairLengthGroup.classList.remove('has-error');
+                document.getElementById('hairLengthError').style.display = 'none';
+            }
+        }
+
+        function getSelectedServices() {
+            const services = [];
+            const serviceCheckboxes = ['makeup', 'hair', 'nails'];
+
+            serviceCheckboxes.forEach(service => {
+                const checkbox = document.getElementById(service);
+                if (checkbox.checked) {
+                    services.push(service);
+                }
+            });
+
+            return services;
+        }
+
+        function setHairLength(length) {
+            hairLength = length;
+            validateForm();
+
+            document.getElementById('shortBtn').classList.remove('active');
+            document.getElementById('mediumBtn').classList.remove('active');
+            document.getElementById('longBtn').classList.remove('active');
+
+            document.getElementById(`${length}Btn`).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
