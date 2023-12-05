@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore our beauty services, including makeup, hair styling, facial treatments, and nail care. Professional services to enhance your natural beauty.">
+    <meta name="keywords" content="beauty services, makeup, hair styling, facial treatments, nail care">
+    <title>Hair & Makeup Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       
+        body {
+            padding-top: 56px; 
+        }
+
+        .accordion-item {
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #ffffff;
+        }
+
+        .navbar-dark .navbar-toggler:focus,
+        .navbar-dark .navbar-toggler:hover {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+  
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Anu's Makeup Studio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="artists.html">Artists</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="quote.html">Get a Quote</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="container mt-4">
+  
+        <div class="accordion" id="servicesAccordion">
+          
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="makeupHeading">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#makeupCollapse"
+                        aria-expanded="true" aria-controls="makeupCollapse">
+                        Makeup
+                    </button>
+                </h2>
+                <div id="makeupCollapse" class="accordion-collapse collapse show" aria-labelledby="makeupHeading" data-bs-parent="#servicesAccordion">
+                    <div class="accordion-body">
+                        <p>Our professional makeup artists will enhance your natural beauty for any occasion. Whether it's a wedding, prom, or special event, we've got you covered.</p>
+                        <p>Price: $50 and up</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="hairHeading">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#hairCollapse"
+                        aria-expanded="true" aria-controls="hairCollapse">
+                        Hair Styling
+                    </button>
+                </h2>
+                <div id="hairCollapse" class="accordion-collapse collapse" aria-labelledby="hairHeading" data-bs-parent="#servicesAccordion">
+                    <div class="accordion-body">
+                        <p>Transform your hairstyle with the latest trends and techniques. From cuts to colors, our hairstylists will create a look that suits your personality and lifestyle.</p>
+                        <p>Price: $60 and up</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="nailHeading">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nailCollapse"
+                        aria-expanded="true" aria-controls="nailCollapse">
+                        Manicures
+                    </button>
+                </h2>
+                <div id="nailCollapse" class="accordion-collapse collapse" aria-labelledby="nailHeading" data-bs-parent="#servicesAccordion">
+                    <div class="accordion-body">
+                        <p>Pamper your hands and feet with our professional nail care services. We offer manicures, pedicures, and nail art to keep your nails looking fabulous.</p>
+                        <p>Price: $35 and up</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+        <script>
+           
+            document.addEventListener('DOMContentLoaded', function () {
+              
+                if (window.location.hash) {
+                   
+                    var targetId = window.location.hash;
+                    
+                  
+                    var element = document.querySelector(targetId);
+                    
+                   
+                    if (element) {
+                        var accordion = new bootstrap.Collapse(element, { toggle: false });
+                        accordion.show();
+                    }
+                }
+            });
+        </script>
+        
+</body>
+
+</html>
