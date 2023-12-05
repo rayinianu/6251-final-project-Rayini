@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anu's Makeup Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    
+        body {
+            padding-top: 56px;
+        }
+
+        .carousel {
+            margin-bottom: 4rem;
+            
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 400px; 
+            object-fit: cover;
+        }
+
+        .featurette-divider {
+            margin: 5rem 0; 
+        }
+    </style>
+</head>
+
+<body>
+  
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Anu's Makeup Studio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="artists.html">Artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="quote.html">Get a Quote</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+   
+    <main>
+        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="studio.jpg" class="d-block w-100" alt="coast image">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>We do our best so you feel your best</h1>
+                            <p class="opacity-75">At Anu's Studio, we believe in making every client feel like the star of their special event.</p>
+                            <p><a class="btn btn-lg btn-primary" href="services.html#makeupCollapse">Learn More</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="artists.jpg" class="d-block w-100" alt="yurt image">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Artists</h1>
+                            <p>Let us introduce you to the talented individuals who will bring their expertise to every brushstroke, curl, and pampering moment: </p>
+                            <p><a class="btn btn-lg btn-primary" href="artists.html">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                        <img src="services.jpg" class="d-block w-100" alt="trail image">
+                        <div class="container">
+                            <div class="carousel-caption text-start">
+                                <h1>Services</h1>
+                                <p class="opacity-75"> Check out our comprehensive range of makeup, hair, facial, and manicure services.</p>
+                                <p><a class="btn btn-lg btn-primary" href="services.html">Learn more</a></p>
+                            </div>
+                    </div>
+                </div>    
+                <div class="carousel-item">
+                    <img src="appointment.jpg" class="d-block w-100" alt="beach image">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1>Get a Quote</h1>
+                            <p>Get a quote today and let us turn your vision into a breathtaking reality.</p>
+                            <p><a class="btn btn-lg btn-primary" href="quote.html">Get a Quote</a></p>
+                        </div>
+                    </div>
+                </div>
+               </div> 
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        
+
+    
+
+        <div class="container marketing">
+
+           
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="makeup.jpg" alt="coast small image" width="140" height="140"
+                        class="rounded-circle">
+                    <h2 class="fw-normal">Make-up</h2>
+                    <p>Indulge in the artistry of our skilled makeup artists who are dedicated to enhancing your natural beauty. Whether you desire a glamorous look for a gala, a sophisticated appearance for a corporate event, or a whimsical style for a themed party, our makeup services are tailored to suit your unique preferences. We use premium products and techniques to ensure your makeup not only looks stunning but lasts throughout your special event.</p>
+                    <p><a class="btn btn-secondary" href="services.html#makeupCollapse">View Details &raquo;</a></p>
+                </div>
+                <div class="col-lg-4">
+                    <img src="hairstyling.jpg" alt="yurt small image" width="140" height="140"
+                        class="rounded-circle">
+                    <h2 class="fw-normal">Hair Styling</h2>
+                    <p>Transform your tresses into a masterpiece with our expert hair styling services. Our experienced hairstylists are adept at creating a diverse range of styles, from classic updos to trendy braids and flowing waves. Whether you're aiming for a timeless and elegant look or a modern and edgy vibe, we have the skills to bring your vision to life. Let us craft a hairstyle that complements your overall aesthetic, leaving you feeling confident and beautiful</p>
+                    <p><a class="btn btn-secondary" href="services.html#hairCollapse">View Details &raquo;</a></p>
+                </div>
+                <div class="col-lg-4">
+                    <img src="manicure.jpg" alt="trail small image" width="140" height="140"
+                        class="rounded-circle">
+                    <h2 class="fw-normal">Manicures</h2>
+                    <p>Complete your look with our exquisite manicure services. Our talented nail technicians will pamper your hands and nails, providing meticulous care and attention to detail. Choose from a variety of nail art designs, classic colors, or elegant finishes to complement your overall style. Whether you prefer a subtle and understated look or bold and vibrant nails, our manicures will add the perfect finishing touch to your ensemble.</p>
+                    <p><a class="btn btn-secondary" href="services.html#nailCollapse">View Details &raquo;</a></p>
+                </div>
+            </div>
+
+        </div>
+
+
+        
+        <footer class="container">
+            <p class="float-end"><a href="#">Back to top</a></p>
+            <p>&copy; 2023 Anu's Makeup Studio&middot; <a href="#">anusharayini.com</a></p>
+        </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+        <script>
+            function showService(target) {
+                var element = document.querySelector(target);
+                if (element) {
+                    var accordion = new bootstrap.Collapse(element, { toggle: false });
+                    accordion.show();
+                }
+            }
+        </script>
+</body>
+
+</html>
